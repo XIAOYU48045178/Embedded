@@ -237,6 +237,36 @@ int main()
 }
 ```
 
+`根据输入行数打印金字塔`
+
+```c
+#include <stdio.h>  
+  
+int main() {  
+    int row, i, j, space, star;  
+  
+    printf("请输入金字塔的行数: ");  
+    scanf("%d", &row);  
+  
+    for (i = 1; i <= row; i++) {   
+
+        space = row - i;  
+        for (j = 1; j <= space; j++) {  
+            printf(" ");  
+        }  
+  
+        star = 2 * i - 1;  
+        for (j = 1; j <= star; j++) {  
+            printf("*");  
+        }  
+  
+        printf("\n");  
+    }  
+  
+    return 0;  
+}
+```
+
 `Break Continue`
 --
 
