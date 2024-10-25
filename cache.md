@@ -56,22 +56,6 @@ int main(){
 ```
 
 
-`变量与常量`
---
-
-
-
-
-
-
-`> 常量的定义`
-
-
-`! define 定义常量`
-
-`define 是预处理命令 使用 define 定义常量实际是进行符号替换 #define符号名 替换列表 #define XI "XIAO YU" 所有的 XI 都会被替换为 XIAO YU`
-
-
 
 
 
@@ -84,4 +68,4 @@ int main(){
     return 0;
 }
 
-类型转换 变量作用域 常量
+类型转换 int float 变量作用域
