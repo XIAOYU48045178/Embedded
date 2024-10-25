@@ -25,6 +25,39 @@
 
 `由于计算机中数据是以二进制进行存放的数据类型的表示范围也一般都是 4 的倍数 因此常将二进制数据以十六进制表示`
 
+`! 整数拆分`
+
+```c
+#include<stdio.h>
+int main()
+{
+	int v1 = 98, v2 = 987, v3 = 9876;
+	v1 % 10; v1 / 10 % 10;
+    v2 % 10; v2 / 10 % 10; v2 / 100 % 10;
+    v3 % 10; v3 / 10 % 10; v3 / 100 % 10; v3 / 1000 % 10; 
+}
+```
+
+`!! 水仙花 100 ~ 999`
+
+```c
+#include<stdio.h>
+int main()
+{
+	int i,bw,sw,gw;
+	for(i=100;i<=999;i++)
+	{
+		bw=i/100%10;
+		sw=i/10%10;
+		gw=i%10;
+		if(bw*bw*bw+sw*sw*sw+gw*gw*gw==i){
+            printf("%d ",i);
+        }
+	}	
+    return 0;
+}
+```
+
 `> 实型` `1.0`
 
 `! 实型变量`
@@ -73,6 +106,22 @@ int main(){
 `字符常量指以单引号括起来的一个字符 只能单引号不能双引号 只能单个字符不能字符串 不能直接参与数值运算以其 ASCII 码值来参与运算`
 
 `转义字符` `\n` `\0` `\t` `\r`
+
+`! 字符判断`
+
+```c
+#include<stdio.h>
+int main()
+{
+	char v;
+	scanf("%c",&v);
+	if(v >= 'A' && v <= 'Z') printf("A ~ Z\n");
+	else if(v >= 'a' && v <= 'z') printf("a ~ z\n");
+	else if(v >= '0' && v <= '9') printf("0 ~ 9\n");
+	else printf("其他字符\n");
+    return 0;
+}
+```
 
 `运算符`
 --
@@ -130,6 +179,8 @@ int main(){
 
 `> 三元运算符` `运算结果为表达式 1 或 表达式 2 的表达式值`
 
+`! 最值`
+
 ```c
 #include<stdio.h>
 int main(){
@@ -165,6 +216,50 @@ int main(){
 #include<stdio.h>
 int main(){
 	printf("%d",sizeof(int));
+}
+```
+
+`交换`
+--
+
+```c
+#include<stdio.h>
+void main()
+{
+	int v1, v2, t;
+	scanf("%d%d",&v1,&v2);
+	t = v1; v1 = v2; v2 = t;
+	printf("%d %d\n",v2,v2);
+}
+```
+
+```c
+#include<stdio.h>
+int main(){ --整数 浮点数
+    int v1 = 5, v2 = 10;
+    v1 = v1 + v2;
+    v2 = v1 - v2;
+    v1 = v1 - v2;
+}
+```
+
+```c
+#include<stdio.h>
+int main(){ --整数
+    int v1 = 5, v2 = 10;
+    v1 = v1 ^ v2;
+    v2 = v1 ^ v2;
+    v1 = v1 ^ v2;
+}
+```
+
+```c
+#include<stdio.h>
+int main(){ --浮点数
+    int v1 = 5, v2 = 10;
+    v1 = v1 * v2;
+    v2 = v1 / v2;
+    v1 = v1 / v2;
 }
 ```
 

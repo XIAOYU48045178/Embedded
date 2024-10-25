@@ -197,6 +197,46 @@ while(表达式){
 }
 ```
 
+`! 最小公倍数 最大公约数`
+
+```c
+#include <stdio.h>  
+  
+int gcd(int a, int b);  
+int lcm(int a, int b, int gcd_value);  
+  
+int main() {  
+    int num1, num2;  
+    int gcd_value, lcm_value;  
+  
+    printf("请输入两个整数：\n");  
+    scanf("%d %d", &num1, &num2);  
+  
+    gcd_value = gcd(num1, num2);  
+    printf("最大公约数: %d\n", gcd_value);  
+   
+    lcm_value = lcm(num1, num2, gcd_value);  
+    printf("最小公倍数: %d\n", lcm_value);  
+  
+    return 0;  
+}  
+  
+--计算最大公约数的函数欧几里得算法
+int gcd(int a, int b) {  
+    while (b != 0) {  
+        int temp = b;  
+        b = a % b;  
+        a = temp;  
+    }  
+    return a;  
+}  
+  
+--计算最小公倍数的函数  
+int lcm(int a, int b, int gcd_value) {  
+    return (a / gcd_value) * b;  
+}
+```
+
 `循环语句 do while`
 --
 
@@ -219,7 +259,7 @@ for(定义初始变量；条件判断；改变初始值){
 }
 ```
 
-`9 x 9`
+`! 9 x 9`
 
 ```c
 #include<stdio.h>
@@ -237,7 +277,7 @@ int main()
 }
 ```
 
-`根据输入行数打印金字塔`
+`! 根据输入行数打印金字塔`
 
 ```c
 #include <stdio.h>  
@@ -264,6 +304,43 @@ int main() {
     }  
   
     return 0;  
+}
+```
+
+`! 阶乘累加和`
+
+```c
+#include <stdio.h>  
+   
+unsigned long long factorial(int num);  
+  
+int main() {  
+    int n;  
+    unsigned long long sum = 0;
+
+    printf("请输入一个正整数: ");  
+    scanf("%d", &n);  
+ 
+    if (n < 0) {  
+        printf("错误：输入必须是正整数\n");  
+        return 1;
+    }  
+  
+    for (int i = 1; i <= n; i++) {  
+        sum += factorial(i);  
+    }  
+  
+    printf("%d的阶乘累加和是: %llu\n", n, sum);  
+  
+    return 0; 
+}  
+  
+unsigned long long factorial(int num) {  
+    unsigned long long result = 1;  
+    for (int i = 1; i <= num; i++) {  
+        result *= i;  
+    }  
+    return result;  
 }
 ```
 

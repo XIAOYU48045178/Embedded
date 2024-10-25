@@ -127,12 +127,13 @@ int main(){
 ```c
 #include<stdio.h>
 int main(){
-    for(int i = 0; i < 15; i++){
-        
-        if(i % 5 == 0 && i != 0){
-            printf("\n");
-        }
-        printf("#");
+    int k = 0, v1 = 0, sum = 0;
+    scanf("%d",&k);
+
+    for(int i = 1; i <= k; i++){
+        v1 = i * i;
+        sum += v1;
     }
+    printf("%d\n",sum);
     return 0;
 }
