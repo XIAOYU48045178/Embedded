@@ -55,12 +55,6 @@ int main(){
 }
 ```
 
-`关键字 typedef`
---
-
-`其作用是为一种数据类型定义一个新的名字 包括内部数据类型和自定义数据类型`
-
-`typedef unsigned long uint32; uint32 v; 即 unsigned long v;`
 
 `变量与常量`
 --
@@ -91,8 +85,6 @@ int main(){
 `const 修饰的是指针 a 因此指针地址不可以改变而指针指向对象的值可以改变`
 
 
-
-
 `! define 定义常量`
 
 `define 是预处理命令 使用 define 定义常量实际是进行符号替换 #define符号名 替换列表 #define XI "XIAO YU" 所有的 XI 都会被替换为 XIAO YU`
@@ -111,24 +103,6 @@ int main(){
 `全局变量则在所有函数外部定义整个程序都可见 生命周期贯穿程序运行始终 存储在数据段静态分配内存 全局变量便于跨函数共享数据 但过度使用会降低代码可读性和可维护性且可能引发多线程并发访问问题 使用全局变量时需避免命名冲突防止意外覆盖或修改 同时在多线程环境中应特别小心考虑使用同步机制保护数据一致性 `
 
 
-
-```
-能表示数学式 x<y<z 的 C 语言表达式是
-
-
-A)(x<y)&&(y<z)                  B (x<y)AND(y<z)
-C) (x<y<z)                      D) (x<y)&(y<z)
-```
-
-```c
-#include<stdio.h>
-int main(){
-    for(int i = 1; i <= 1000; i++){
-        i % 3 == 0 && i % 5 != 0 && printf("%d\n",i);
-    }
-    return 0;
-}
-```
 
 ```c
 #include<stdio.h>
