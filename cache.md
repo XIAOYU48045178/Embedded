@@ -127,5 +127,12 @@ int main(){
 ```c
 #include<stdio.h>
 int main(){
-    
+    for(int i = 0; i < 15; i++){
+        
+        if(i % 5 == 0 && i != 0){
+            printf("\n");
+        }
+        printf("#");
+    }
+    return 0;
 }
