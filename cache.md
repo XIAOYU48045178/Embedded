@@ -73,6 +73,9 @@ int main(){
 
 `int v = 5;` `int v; v = 5;` `int *v;`
 
+
+
+
 `> 常量的定义`
 
 `! const 定义常量`
@@ -86,6 +89,9 @@ int main(){
 `int * const a;` 
 
 `const 修饰的是指针 a 因此指针地址不可以改变而指针指向对象的值可以改变`
+
+
+
 
 `! define 定义常量`
 
