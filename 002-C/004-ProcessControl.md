@@ -197,6 +197,16 @@ while(表达式){
 }
 ```
 
+```c
+#include<stdio.h>
+int main(){
+    int i = 5;
+    while(++i != 5); --int 有范围 过了从头再来
+    printf("%d\n",i);
+    return 0;    
+}
+```
+
 `! 最小公倍数 最大公约数`
 
 ```c

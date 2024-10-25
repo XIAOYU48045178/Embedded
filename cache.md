@@ -127,13 +127,6 @@ int main(){
 ```c
 #include<stdio.h>
 int main(){
-    int k = 0, v1 = 0, sum = 0;
-    scanf("%d",&k);
-
-    for(int i = 1; i <= k; i++){
-        v1 = i * i;
-        sum += v1;
-    }
-    printf("%d\n",sum);
+    
     return 0;
 }
