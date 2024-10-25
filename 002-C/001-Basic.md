@@ -373,3 +373,9 @@ int main(){
 	printf("%d",sizeof(int));
 }
 ```
+
+`> typedef`
+
+`其作用是为一种数据类型定义一个新的名字 包括内部数据类型和自定义数据类型`
+
+`typedef unsigned long uint32` `uint32 v1 即 unsigned long v1;`
