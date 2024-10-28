@@ -99,5 +99,10 @@ int main(){
     printf("%f\n",consumptionAmount);
     return 0;
 }
+```
+
+`所有的浮点运算都是以双精度进行的即使仅含 float 单精度量运算的表达式也要先转换成 double 型再作运算`
 
 类型转换 int float 变量作用域
+
+```c

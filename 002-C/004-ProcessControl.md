@@ -459,9 +459,11 @@ int main() {
         cnt++;  
     }  
 
+    int digit = 0;
+
     occas = v1;  
     while (occas != 0) {  
-        int digit = occas % 10;  
+        digit = occas % 10;  
         rev = rev * 10 + digit;
         occas /= 10;  
     }  
