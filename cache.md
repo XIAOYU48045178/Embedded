@@ -169,3 +169,23 @@ int main()
     return 0;
 }
 ```
+
+```c
+#include<stdio.h>
+int main(){
+    int arr[19] = {1, 1};
+    for(int i = 2; i < 20; i++){
+        arr[i] = arr[i - 1] + arr[i -2];
+    }
+
+    for(int i = 0; i < 19 / 2 + 1; i++){
+        arr[i] = arr[i] ^ arr[19 - i];
+        arr[19 - i] = arr[i] ^ arr[19 - i];
+        arr[i] = arr[i] ^ arr[19 - i];
+    }
+
+    for(int i = 0; i < 20; i++){
+        printf("%d ",arr[i]);
+    }
+    return 0;
+}
