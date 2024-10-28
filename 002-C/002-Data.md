@@ -397,13 +397,9 @@ int main(){
 
 `若参与运算量的类型不同则先转换成同一类型然后进行运算 转换按数据长度增加的方向进行以保证精度不降低如 int 型和 long 型运算时先把 int 转成 long 型后再进行运算若两种类型的字节数不同转换成字节数高的类型若两种类型的字节数相同且一种有符号一种无符号则转换成无符号类型`
 
-`所有的浮点运算都是以双精度进行的即使仅含 float 单精度量运算的表达式也要先转换成 double 型再作运算`
-
-`char 型和 short 型参与运算时必须先转换成 int 型`
-
 `在赋值运算中赋值号两边量的数据类型不同时赋值号右边量的类型将转换为左边量的类型如果右边量的数据类型长度比左边长时将丢失一部分数据这样会降低精度丢失的部分按四舍五入向前舍入`
 
-`char -> int -> unsigned int -> long -> double` `short -> int -> unsigned int -> long -> double` `float -> double`
+`char -> int -> unsigned int` `short -> int -> unsigned int` `int -> unsigned int -> long -> unsigned long -> long long -> unsigned long long -> float -> double -> long double`
 
 `100 - 'A' + 2.5 首先计算 100 - 'A' 将 'A' 转换 int 型数据 65 运算结果为 35 然后计算 35 + 2.5 将 float 型 2.5 转换为 double 型 int 型 35 转换为 double 型 运算结果为 double 型`
 
