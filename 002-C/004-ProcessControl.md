@@ -287,6 +287,63 @@ int main()
 }
 ```
 
+`! 素数`
+
+```c
+#include <stdio.h>  
+#include <math.h>  
+#include <stdbool.h>  
+   
+bool isPrime(int n) {  
+    if (n <= 1) return false;  
+    if (n <= 3) return true;  
+  
+    -- 排除偶数和 3 的倍数  
+    if (n % 2 == 0 || n % 3 == 0) return false;  
+  
+    -- 检查形如 6k ± 1 的数  
+    for (int i = 5; i * i <= n; i += 6) {  
+        if (n % i == 0 || n % (i + 2) == 0) return false;  
+    }  
+  
+    return true;  
+}  
+  
+int main() {  
+    int num;  
+    printf("请输入一个整数: ");  
+    scanf("%d", &num);  
+  
+    if (isPrime(num)) {  
+        printf("%d 是素数\n", num);  
+    } else {  
+        printf("%d 不是素数\n", num);  
+    }  
+  
+    return 0;  
+}
+```
+
+```c
+#include<stdio.h>
+int fun(int n)
+{
+	int i;
+	for(i=2;i<=n-1;i++)
+		if(n%i==0) break;
+	if(i>n-1) return 1;
+	else return 0;
+}
+int main()
+{
+	int a[5]={2,17,25,18,21},i,s=0;
+	for(i=0;i<5;i++)
+		if(fun(a[i])==1) s=s+a[i];
+	printf("%d",s);	
+	return 0;
+}
+```
+
 `! 根据输入行数打印金字塔`
 
 ```c

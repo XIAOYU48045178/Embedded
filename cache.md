@@ -64,7 +64,39 @@ int main(){
 ```c
 #include<stdio.h>
 int main(){
-    
+    float consumptionAmount = 0;
+    char isMember = 0,way = 0;
+    puts("请输入消费金额: ");
+    scanf("%f",&consumptionAmount);
+    puts("是否为会员？是 Y 否 N: ");
+    scanf("%c",&isMember);
+
+    if(consumptionAmount < 0){
+        puts("不合法");
+        return 0;
+    }
+    if(consumptionAmount < 2000){
+        printf("%f\n",consumptionAmount);
+        return 0;
+    }
+    if(isMember == 'N'){
+        consumptionAmount = consumptionAmount * 0.95;
+        printf("%f\n",consumptionAmount);
+        return 0;
+    }
+    puts("请选择支付方式: Z V X");
+    scanf("%c",&way);
+
+    if(way == 'Z'){
+        consumptionAmount = consumptionAmount * 0.85;
+    }
+    if(way == 'V'){
+        consumptionAmount = consumptionAmount * 0.9;
+    }
+    if(way == 'X'){
+        consumptionAmount = consumptionAmount * 0.8;
+    }
+    printf("%f\n",consumptionAmount);
     return 0;
 }
 
