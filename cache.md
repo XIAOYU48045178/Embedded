@@ -106,3 +106,23 @@ int main(){
 类型转换 int float 变量作用域
 
 ```c
+#include<stdio.h>
+#define A 60
+int main(){
+    while(1){
+        int v1 = 0, cnt = 0;
+        scanf("%d",&v1);
+        if(v1 <= 0){
+            break;
+        }
+        if(v1 <= A){
+            printf("%d 分钟\n",v1);
+        }else{
+            while(v1 /= A){
+                cnt++;
+            }
+            printf("%d 小时 %d 分钟\n",cnt,v1);
+        }
+    }
+    return 0;
+}
