@@ -22,25 +22,8 @@
 
 `> 枚举类型`
 
-```c
-#include <stdio.h>  
-  
-enum color { RED, GREEN, BLUE};  
-  
-int main() {  
-    enum color mColor = RED;  
-  
-    if (mColor == RED) {  
-        printf("isRED\n");  
-    } else if (mColor == GREEN) {  
-        printf("isGREEN\n");  
-    } else if (mColor == BLUE) {  
-        printf("isBLUE\n");  
-    }  
 
-    return 0;  
-}
-```
+
 
 `> 指针类型` `有则值无则指针`
 
@@ -105,24 +88,84 @@ int main(){
 
 类型转换 int float 变量作用域
 
+`关于 main 函数的参数`
+
+在有些很专业的书会看到如下代码
+
+int main( int argc, char *argv[] )
+上面的代码中 main 函数带了参数。
+
+但是有时又会看见main函数没有参数，如下：
+
+int main()
+那么 main 函数到底有没有参数，有没有参数会不会有什么影响？
+
+main 函数其实与我们写的函数没有什么区别，它也会有自己的参数。
+
+argc 和 argv 是 main 函数的形式参数。
+
+这两个形式参数的类型是系统规定的。如果 main 函数要带参数，就是这两个类型的参数；否则main函数就没有参数。
+
+变量名称argc和argv是常规的名称，当然也可以换成其他名称。在传入参数后main函数收到参数后就会做自己的事。那么，实际参数是如何传递给main函数的argc和argv的呢？我们知道，C程序在编译和链接后，都生成一个exe文件，执行该exe文件时，可以直接执行；也可以在命令行下带参数执行，命令行执行的形式为：可执行文件名称 参数1 参数2 ... ... 参数n。可执行文件名称和参数、参数之间均使用空格隔开。
+
+如果按照这种方法执行，命令行字符串将作为实际参数传递给main函数。具体为：
+
+ (1) 可执行文件名称和所有参数的个数之和传递给 argc；
+ (2) 可执行文件名称（包括路径名称）作为一个字符串，首地址被赋给 argv[0]，参数1也作为一个字符串，首地址被赋给 argv[1]，... ...依次类推。
+
 ```c
 #include<stdio.h>
-#define A 60
 int main(){
-    while(1){
-        int v1 = 0, cnt = 0;
-        scanf("%d",&v1);
-        if(v1 <= 0){
-            break;
-        }
-        if(v1 <= A){
-            printf("%d 分钟\n",v1);
-        }else{
-            while(v1 /= A){
-                cnt++;
-            }
-            printf("%d 小时 %d 分钟\n",cnt,v1);
-        }
+    int a[4]={};
+    
+    for(int i = 0; i <= 4; i++){
+        scanf("%d",&a[i]);
     }
+
+    int max = a[0];
+    int min = a[0];
+    int imax = 0, imin = 0;
+    for(int i = 1; i <= 4; i++){
+        max = max > a[i] ? max : a[i];
+        imax = max == a[i] ? i : imax;
+
+        min = min < a[i] ? min : a[i];
+        imin = min == a[i] ? i : imin;
+    }
+
+    a[imax] = a[imax] ^ a[imin];
+    a[imin] = a[imax] ^ a[imin];
+    a[imax] = a[imax] ^ a[imin];
+
+    printf("%d %d\n",max,min);
+
+    printf("%d %d\n",imax,imin);
+
+    for(int i = 0; i <= 4; i++){
+        printf("%d\n",a[i]);
+    }
+    
     return 0;
 }
+
+
+```c
+#include<stdio.h>
+#define N 10
+void sort(int a[],int n)
+{
+	int i,j,t;
+	for(i=0;i<n-1;i++)
+		for(j=0;j<n-1-i;j++)
+			if(a[j]>a[j+1]) {t=a[j];a[j]=a[j+1];a[j+1]=t;}
+}
+int main()
+{
+	int a[N]={10,9,8,7,6,5,4,3,2,1},i;
+	sort(a,N);
+	for(i=0;i<N;i++)
+		printf("%d  ",a[i]);
+	printf("\n");
+    return 0;
+}
+```
