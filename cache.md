@@ -67,65 +67,6 @@ int main(){
 }
 ```
 
-```c
-#include<stdio.h>
-int main(){
-    char strArr[100] = {};
-
-	gets(strArr);
-
-    printf("%s",strArr);
-    
-}
-```
-
-```c
-#include<stdio.h>
-int main(){
-    char strArr[100] = {};
-	gets(strArr);
-
-    int i = 0, cnt = 0;
-    while(strArr[i] != '\0'){
-        if(strArr[i] == 'l'){
-            cnt++;
-        }
-        i++;
-
-    }
-    printf("%d",cnt);
-    return 0;
-}
-
-```
-
-```c
-#include<stdio.h>
-int main(){
-    char strArr[100] = {};
-	gets(strArr);
-
-    int i = 0;
-    while(strArr[i] != '\0'){
-        i++;
-    }
-
-    int start = 0;
-    char t = 0;
-    i-=1;
-
-    while(start < i){
-        t = strArr[start];
-        strArr[start] = strArr[i];
-        strArr[i] = t;
-        i--;
-        start++;
-    }
-
-    printf("%s",strArr);
-
-}
-```
 
 ```c
 #include<stdio.h>
