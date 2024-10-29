@@ -67,59 +67,10 @@ argc 和 argv 是 main 函数的形式参数。
 
 
 
-```c
-#include<stdio.h>
-int main(){
-    int a[4]={};
-    
-    for(int i = 0; i <= 4; i++){
-        scanf("%d",&a[i]);
-    }
-
-    int max = a[0];
-    int min = a[0];
-    int imax = 0, imin = 0;
-    for(int i = 1; i <= 4; i++){
-        max = max > a[i] ? max : a[i];
-        imax = max == a[i] ? i : imax;
-
-        min = min < a[i] ? min : a[i];
-        imin = min == a[i] ? i : imin;
-    }
-
-    a[imax] = a[imax] ^ a[imin];
-    a[imin] = a[imax] ^ a[imin];
-    a[imax] = a[imax] ^ a[imin];
-
-    printf("%d %d\n",max,min);
-
-    printf("%d %d\n",imax,imin);
-
-    for(int i = 0; i <= 4; i++){
-        printf("%d\n",a[i]);
-    }
-    
-    return 0;
-}
-
-
-
-
 
 
 类型转换 int float 变量作用域 arr funcation
 
-
-
-bubble
---
-
-原理：每次两个数进行比较，从数组的前两个元素开始，如果前
-面的数>后面的数，就交换
-第一趟会求出一个最大值，并且放在最后面，
-然后依此类推，经过最多N-1趟，排好序
-
-```c
 
 
 
@@ -204,22 +155,66 @@ int main(){
 #include<time.h>
 
 int main(){
-    int arr[7] = {};
+    int arr1[7] = {};
     srand(time(0));
 
     for(int i = 0; i < 7; i++){
-        arr[i] = rand() % 35 + 1;
+        arr1[i] = rand() % 35 + 1;
         for(int j = 0; j < i; j++){
-            if(arr[j] == arr[i]){
+            if(arr1[j] == arr1[i]){
                 i--;
                 break;
             }
-        }
-        
+        }    
+    }
+
+    int arr2[7] = {};
+    for(int i = 0; i < 7; i++){
+        scanf("%d",&arr2[i]);
     }
     
+    
     for(int i = 0; i < 7; i++){
-        printf("%d ", arr[i]);
+		printf("%d ",arr1[i]);
+    }
+    printf("\n");
+    for(int i = 0; i < 7; i++){
+		printf("%d ",arr2[i]);
+    }
+    printf("\n");
+    
+
+    int cnt = 0;
+    for(int i = 0; i < 7; i++){
+        for(int j = 0; j < 7; j++){
+            if(arr2[i] == arr1[j]){
+                cnt++;
+                break;
+            }
+        }
+    }
+    
+	printf("cnt: %d\n",cnt);
+
+    switch(cnt){
+        case 0: case 1: case 2:
+            puts("0");
+            break;
+        case 3:
+            puts("500");
+            break;
+        case 4:
+            puts("5000");
+            break;
+        case 5:
+            puts("10000");
+            break;
+        case 6:
+            puts("1000000");
+            break;
+        case 7:
+            puts("5000000");
+            break;
     }
     
     return 0;
