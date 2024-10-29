@@ -38,55 +38,7 @@ int main(){
 }
 ```
 
-
-
-
-
-
-
-```c
-#include<stdio.h>
-int main(){
-    float consumptionAmount = 0;
-    char isMember = 0,way = 0;
-    puts("请输入消费金额: ");
-    scanf("%f",&consumptionAmount);
-    puts("是否为会员？是 Y 否 N: ");
-    scanf("%c",&isMember);
-
-    if(consumptionAmount < 0){
-        puts("不合法");
-        return 0;
-    }
-    if(consumptionAmount < 2000){
-        printf("%f\n",consumptionAmount);
-        return 0;
-    }
-    if(isMember == 'N'){
-        consumptionAmount = consumptionAmount * 0.95;
-        printf("%f\n",consumptionAmount);
-        return 0;
-    }
-    puts("请选择支付方式: Z V X");
-    scanf("%c",&way);
-
-    if(way == 'Z'){
-        consumptionAmount = consumptionAmount * 0.85;
-    }
-    if(way == 'V'){
-        consumptionAmount = consumptionAmount * 0.9;
-    }
-    if(way == 'X'){
-        consumptionAmount = consumptionAmount * 0.8;
-    }
-    printf("%f\n",consumptionAmount);
-    return 0;
-}
-```
-
 `所有的浮点运算都是以双精度进行的即使仅含 float 单精度量运算的表达式也要先转换成 double 型再作运算`
-
-
 
 `关于 main 函数的参数`
 
@@ -112,6 +64,8 @@ argc 和 argv 是 main 函数的形式参数。
 
  (1) 可执行文件名称和所有参数的个数之和传递给 argc；
  (2) 可执行文件名称（包括路径名称）作为一个字符串，首地址被赋给 argv[0]，参数1也作为一个字符串，首地址被赋给 argv[1]，... ...依次类推。
+
+
 
 ```c
 #include<stdio.h>
@@ -236,3 +190,41 @@ int main(){
 字符串
 --
 
+```c
+#include<stdio.h>
+int main(){
+    char strArr[100] = {};
+
+	scanf("%99[^\n]", strArr);
+
+    printf("%s",strArr);
+    
+}
+```
+
+```c
+#include<stdio.h>
+int main(){
+    char strArr[100] = {};
+
+	gets(strArr);
+
+    printf("%s",strArr);
+    
+}
+```
+
+```c
+#include<stdio.h>
+int main(){
+    char strArr[100] = {};
+	gets(strArr);
+
+    int i = 0;
+    while(strArr[i] != '\0'){
+        i++;
+
+    }
+    printf("%d",i);
+    return 0;
+}
