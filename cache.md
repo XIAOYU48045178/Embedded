@@ -124,25 +124,6 @@ int main()
 }
 ```
 
-```c
-#include<stdio.h>
-int main(){
-    int arr[19] = {1, 1};
-    for(int i = 2; i < 20; i++){
-        arr[i] = arr[i - 1] + arr[i -2];
-    }
-
-    for(int i = 0; i < 19 / 2 + 1; i++){
-        arr[i] = arr[i] ^ arr[19 - i];
-        arr[19 - i] = arr[i] ^ arr[19 - i];
-        arr[i] = arr[i] ^ arr[19 - i];
-    }
-
-    for(int i = 0; i < 20; i++){
-        printf("%d ",arr[i]);
-    }
-    return 0;
-}
 
 
 类型转换 int float 变量作用域 arr funcation
@@ -220,11 +201,103 @@ int main(){
     char strArr[100] = {};
 	gets(strArr);
 
-    int i = 0;
+    int i = 0, cnt = 0;
     while(strArr[i] != '\0'){
+        if(strArr[i] == 'l'){
+            cnt++;
+        }
         i++;
 
     }
-    printf("%d",i);
+    printf("%d",cnt);
     return 0;
 }
+
+```
+
+```c
+#include<stdio.h>
+int main(){
+    char strArr[100] = {};
+	gets(strArr);
+
+    int i = 0;
+    while(strArr[i] != '\0'){
+        i++;
+    }
+
+    int start = 0;
+    char t = 0;
+    i-=1;
+
+    while(start < i){
+        t = strArr[start];
+        strArr[start] = strArr[i];
+        strArr[i] = t;
+        i--;
+        start++;
+    }
+
+    printf("%s",strArr);
+
+}
+```
+
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+    int arr[7] = {};
+    srand(time(0));
+
+    for(int i = 0; i < 7; i++){
+        arr[i] = rand() % 35 + 1;
+        for(int j = 0; j < i; j++){
+            if(arr[j] == arr[i]){
+                i--;
+                break;
+            }
+        }
+        
+    }
+    
+    for(int i = 0; i < 7; i++){
+        printf("%d ", arr[i]);
+    }
+    
+    return 0;
+}
+```
+
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+int main(){
+    int v1 = 0;
+    srand(time(0));
+
+
+    v1 = rand() % 10 + 1;
+  
+    int v2 = 0;
+    while(1){
+        scanf("%d",&v2);
+        if(v1 == v2){
+            puts("YES");
+            break;
+        }
+        if(v1 > v2){
+            puts("小了");
+        }
+        if(v1 < v2){
+            puts("大了");
+        }
+    }
+    
+    return 0;
+}
+```
