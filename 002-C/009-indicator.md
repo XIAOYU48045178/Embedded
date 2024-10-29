@@ -413,17 +413,11 @@ int main(void){
 
 `简单讲：回调函数是由别人的函数执行时调用你实现的函数` 
 
-实例中 popuArr() 函数定义了三个参数 其中第三个参数是函数的指针 通过该函数来设置数组的值。
-
-实例中我们定义了回调函数 nextRandomValue() 它返回一个随机值 它作为一个函数指针传递给 popuArr() 函数。
-
-popuArr() 将调用 10 次回调函数 并将回调函数的返回值赋值给数组。
-
 ```c
 #include <stdlib.h>  
 #include <stdio.h>
  
-void popuArr(int *arr, size_t arrSize, int (*nextValue)(void)){
+void initArr(int *arr, size_t arrSize, int (*nextValue)(void)){
     for (size_t i=0; i<arrSize; i++)--size_t 标准库中定义的一种无符号整数类型
         arr[i] = nextValue();
 }
@@ -435,7 +429,7 @@ int nextRandomValue(void){
 int main(void){
     int arr[10];
     
-    popuArr(arr, 10, nextRandomValue);--nextRandomValue 不能加括号 否则无法编译 因为加上括号之后相当于传入此参数时传入了 int  而不是函数指针
+    initArr(arr, 10, nextRandomValue);--nextRandomValue 不能加括号 否则无法编译 因为加上括号之后相当于传入此参数时传入了 int  而不是函数指针
     for(int i = 0; i < 10; i++) {
         printf("%d ", arr[i]);
     }
@@ -443,3 +437,5 @@ int main(void){
     return 0;
 }
 ```
+
+`实例中 initArr 函数定义了三个参数 其中第三个参数是函数的指针 通过该函数来设置数组的值` `实例中我们定义了回调函数 nextRandomValue 它返回一个随机值 它作为一个函数指针传递给 initArr 函数` `initArr 将调用 10 次回调函数 并将回调函数的返回值赋值给数组` 
