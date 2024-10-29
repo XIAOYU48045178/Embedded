@@ -326,7 +326,7 @@ double getAverage(int *arr, int size){
     double avg;          
 
     for (i = 0; i < size; ++i){
-    sum += arr[i];
+        sum += arr[i];
     }
 
     avg = (double)sum / size;
