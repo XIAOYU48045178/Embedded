@@ -103,42 +103,13 @@ int main(){
 }
 
 
-```c
-#include<stdio.h>
-#define N 10
-void sort(int a[],int n)
-{
-	int i,j,t;
-	for(i=0;i<n-1;i++)
-		for(j=0;j<n-1-i;j++)
-			if(a[j]>a[j+1]) {t=a[j];a[j]=a[j+1];a[j+1]=t;}
-}
-int main()
-{
-	int a[N]={10,9,8,7,6,5,4,3,2,1},i;
-	sort(a,N);
-	for(i=0;i<N;i++)
-		printf("%d  ",a[i]);
-	printf("\n");
-    return 0;
-}
-```
+
 
 
 
 类型转换 int float 变量作用域 arr funcation
 
-```c
-#include<stdio.h>
-int main(){
-    int a[5]={10,20,30,40,50};
-    int b[5]={};
-    for(int i = 0; i < 5; i++){
-        b[i] = a[i];
-    }
-    return 0;
-}
-```
+
 
 bubble
 --
@@ -149,23 +120,7 @@ bubble
 然后依此类推，经过最多N-1趟，排好序
 
 ```c
-#include<stdio.h>
-int main(){
-    int arr[8] = {89, 94, 23, 16, 90, 34, 67, 78};
-    for(int i = 0; i < 8; i++){
-        for(int j = 0; j < 8 - 1 - i; j++){
-            if(arr[j] > arr[j + 1]){
-                arr[j] = arr[j] ^ arr[j + 1];
-                arr[j + 1] = arr[j] ^ arr[j + 1];
-                arr[j] = arr[j] ^ arr[j + 1];
-            }
-        }
-    }
-    for(int i = 0; i < 8; i++){
-        printf("%d ",arr[i]);
-    }
-    return 0;
-}
+
 
 
 字符串
