@@ -192,3 +192,47 @@ int main(){
 
 
 类型转换 int float 变量作用域 arr funcation
+
+```c
+#include<stdio.h>
+int main(){
+    int a[5]={10,20,30,40,50};
+    int b[5]={};
+    for(int i = 0; i < 5; i++){
+        b[i] = a[i];
+    }
+    return 0;
+}
+```
+
+bubble
+--
+
+原理：每次两个数进行比较，从数组的前两个元素开始，如果前
+面的数>后面的数，就交换
+第一趟会求出一个最大值，并且放在最后面，
+然后依此类推，经过最多N-1趟，排好序
+
+```c
+#include<stdio.h>
+int main(){
+    int arr[8] = {89, 94, 23, 16, 90, 34, 67, 78};
+    for(int i = 0; i < 8; i++){
+        for(int j = 0; j < 8 - 1 - i; j++){
+            if(arr[j] > arr[j + 1]){
+                arr[j] = arr[j] ^ arr[j + 1];
+                arr[j + 1] = arr[j] ^ arr[j + 1];
+                arr[j] = arr[j] ^ arr[j + 1];
+            }
+        }
+    }
+    for(int i = 0; i < 8; i++){
+        printf("%d ",arr[i]);
+    }
+    return 0;
+}
+
+
+字符串
+--
+

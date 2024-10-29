@@ -416,12 +416,13 @@ int main(void){
 ```c
 #include <stdlib.h>  
 #include <stdio.h>
- 
+
 void initArr(int *arr, size_t arrSize, int (*nextValue)(void)){
     for (size_t i=0; i<arrSize; i++)--size_t 标准库中定义的一种无符号整数类型
         arr[i] = nextValue();
 }
  
+--回调函数 获取随机值
 int nextRandomValue(void){
     return rand();
 }
@@ -438,4 +439,4 @@ int main(void){
 }
 ```
 
-`实例中 initArr 函数定义了三个参数 其中第三个参数是函数的指针 通过该函数来设置数组的值` `实例中我们定义了回调函数 nextRandomValue 它返回一个随机值 它作为一个函数指针传递给 initArr 函数` `initArr 将调用 10 次回调函数 并将回调函数的返回值赋值给数组` 
+`回调函数定义` `首先 定义了一个回调函数 nextRandomValue 这个函数不接受任何参数并返回一个随机整数` `回调函数作为参数传递` `然后在 initArr 函数中定义了一个函数指针参数 int (*nextValue)(void) 这个指针指向一个不接受参数并返回整数的函数 在 main 函数中 你将 nextRandomValue 函数作为参数传递给 initArr 函数 这里 nextRandomValue 没有加括号 因为我们需要传递函数本身即函数指针 而不是函数的返回值` `回调函数执行` `在 initArr 函数内部 你有一个循环 这个循环遍历数组的每个元素 并调用nextValue 即 nextRandomValue 函数来填充数组 每次循环迭代时 都会执行 nextValue 即 nextRandomValue 来获取一个随机整数并将其存储在数组的当前位置`
