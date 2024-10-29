@@ -86,7 +86,7 @@ int main(){
 
 `所有的浮点运算都是以双精度进行的即使仅含 float 单精度量运算的表达式也要先转换成 double 型再作运算`
 
-类型转换 int float 变量作用域
+
 
 `关于 main 函数的参数`
 
@@ -189,3 +189,6 @@ int main(){
     }
     return 0;
 }
+
+
+类型转换 int float 变量作用域 arr funcation
