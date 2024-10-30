@@ -68,5 +68,43 @@ int main(){
 ```
 
 
+```c
+#include<stdio.h>
+int main(){
+    int a[3][4] ={ {1,2,3,4},{5,6,7,8},{9,10,11,12} };
+    int b[3][4]={ {1,1,1,1},{2,2,2,2},{3,3,3,3} };
+    int c[3][4] = {}；
 
+    int* p1 = a;
+    int* p2 = b;
+    int* p3 = c;
 
+    for(int i = 0; i < 12; i++){
+        *p3 = *p1 + *p2;
+
+        printf("%d ",*p3);
+
+        p1++;
+        p2++;
+        p3++;
+    }
+}
+```
+
+```c
+#include<stdio.h>
+int sum(int n){
+    int sum = 0;
+    for(int i = 0; i <= n; i++){
+        sum += i;
+    }
+    return sum;
+}
+
+int main(){
+    int n = 0;
+    scanf("%d",&n);
+
+    printf("%d",sum(n));
+    return 0;
+}
