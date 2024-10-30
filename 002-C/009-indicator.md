@@ -60,7 +60,9 @@ v1 是最底层的数据存储了一个整数值
 ip1 指向 v1 所以 *ip1 就是 v1 的值 
 ip2 指向 ip1 所以 *ip2 是 ip1 的值 即 v1 的地址 而 **ip2 是 v1 的值 
 ip3 指向 ip2 所以 *ip3 是 ip2 的值 即 ip1 的地址 **ip3 是 ip1 的值 即 v1 的地址 而 ***ip3 是 v1 的值 
+```
 
+```
 &v1 v1 的地址: 0x17fff6b07f6d4
 &ip1 ip1 的地址: 0x17fff6b07f6c8
 ip1 v1 的地址: 0x17fff6b07f6d4
@@ -335,7 +337,7 @@ double getAverage(int *arr, int size){
 }
 ```
 
-`函数返回指针`
+`指针函数 函数返回指针`
 --
 
 `必须声明一个返回指针的函数` `int * function()`
