@@ -108,3 +108,92 @@ int main(){
     printf("%d",sum(n));
     return 0;
 }
+```
+
+```c
+#include <stdio.h>  
+  
+int gcd(int a, int b);  
+int lcm(int a, int b, int gcd_value);  
+  
+int main() {  
+    int num1, num2;  
+    int gcd_value, lcm_value;  #include<stdio.h>
+
+float min(float n1, float n2){
+    return n1 < n2 ? n1 : n2;
+}
+
+int main(){
+    float n1 = 1.2, n2 = 1.3;
+
+    printf("%.2f",min(n1, n2));
+}
+  
+    printf("请输入两个整数：\n");  
+    scanf("%d %d", &num1, &num2);  
+  
+    gcd_value = gcd(num1, num2);  
+    printf("最大公约数: %d\n", gcd_value);  
+   
+    lcm_value = lcm(num1, num2, gcd_value);  
+    printf("最小公倍数: %d\n", lcm_value);  
+  
+    return 0;  
+}  
+  
+int gcd(int a, int b) {  
+    while (b != 0) {  
+        int temp = b;  
+        b = a % b;  
+        a = temp;  
+    }  
+    return a;  
+}  
+    
+int lcm(int a, int b, int gcd_value) {  
+    return (a / gcd_value) * b;  
+}
+```
+
+```c
+#include <stdio.h>  
+  
+int gcd(int a, int b);  
+int lcm(int a, int b, int gcd_value);  
+  
+int main() {  
+    int num1, num2;  
+    int gcd_value, lcm_value;  
+  
+    printf("请输入两个整数：\n");  
+    scanf("%d %d", &num1, &num2);  
+  
+    gcd_value = gcd(num1, num2);  
+    printf("最大公约数: %d\n", gcd_value);  
+   
+    lcm_value = lcm(num1, num2, gcd_value);  
+    printf("最小公倍数: %d\n", lcm_value);  
+  
+    return 0;  
+}  
+  
+int gcd(int a, int b) {  
+    
+    int min = a < b ? a : b;
+    int i = 0;
+    for(i = min; i > 1; i--){
+        if(a % i == 0 && b % i == 0) break;
+    }
+    return i;  
+}  
+    
+int lcm(int a, int b, int gcd_value) {  
+    int max = a > b ? a : b;
+    int i = 0;
+    for(i = max; i <= a * b; i++){
+        if(i % a == 0 && i % b == 0) break;
+    }
+    return i;   
+}
+
