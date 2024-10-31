@@ -207,6 +207,16 @@ int main(void){
 }
 ```
 
+```c
+#include <stdio.h>
+
+int main(void){
+	int b[3][3]={ {1,2,3},4,5,{7,8,9} };
+	printf("%d %d %d %d\n",b[0][2],b[1][2],b[2][1],b[2][0]);
+	return 0;
+}
+```
+
 
 `判断数组中是否存在鞍点鞍点的数为该数在该行最大在该列最小`
 
@@ -237,15 +247,90 @@ int main(){
 }
 ```
 
+
 ```c
 #include<stdio.h>
 #include<string.h>
 
-int main(){
-    char str1[100] = "hello";
-    char str2[100] = "world";
-
-    int i = strcmp(str1,str2);
-    printf("%s",i);
+int i(int n1, int n2, int n3){
+    return n1 + n2 == n3;
 }
 
+int main(){
+
+    int n1 = 10, n2 = 20, n3 = 30;
+    int i1 = i(n1, n2, n3);
+    if(i1){
+        puts("YES");
+    }else{
+        puts("NO");
+    }
+}
+```
+
+```c
+#include<stdio.h>
+
+int n(int n1){
+    int cnt = 0;
+    do{
+        if(n1 % 2){
+            cnt++;
+        }
+    }while(n1 = n1 >> 1);
+    return cnt;
+}
+
+int main(){
+    int n1 = 7;
+    int cnt = n(n1);
+    printf("%d",cnt);
+}
+```
+
+```c
+#include<stdio.h>
+
+int main(){
+    int a = 1;
+
+    int* p = &a;
+
+    a = 20;
+    printf("a is %d\n",a);
+    printf("a is %d\n",a);
+    printf("p is %p\n",p);
+    *p=30;
+
+    printf("a is %d\n",a);
+    printf("&a is %p\n",&a);
+    printf("p is %p\n",p);
+
+    printf("%p\n",p);
+}
+```
+
+```c
+#include<stdio.h>
+int main(){
+    float fn1 = 1.1;
+    float *q = &fn1;
+    *q = 3.14;
+    printf("%d %d\n",fn1, *q); --%f
+}
+```
+
+```c
+#include<stdio.h>
+int main(){
+    int arr[5] = {};
+
+    int *p = arr;
+
+    for(int i = 0; i < 5; i++){
+        scanf("%d",p);
+        printf("%d ",*p);
+        p++;
+    }
+    return 0;
+}
