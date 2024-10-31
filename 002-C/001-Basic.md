@@ -386,4 +386,10 @@ int main(){
 
 `其作用是为一种数据类型定义一个新的名字 包括内部数据类型和自定义数据类型`
 
-`typedef unsigned long uint32` `uint32 v1 即 unsigned long v1;`
+`typedef unsigned long uint32` `uint32 v1 即 unsigned long v1;` `按照惯例定义时会大写字母 以便提醒用户类型名称是一个象征性的缩写`
+
+`typedef vs #define`
+
+`#define 是 C 指令 用于为各种数据类型定义别名 与 typedef 类似 但是它们有以下几点不同`
+
+`typedef 仅限于为类型定义符号名称 #define 不仅可以为类型定义别名 也能为数值定义别名 比如您可以定义 1 为 ONE` `typedef 是由编译器执行解释的 #define 语句是由预编译器进行处理的` 

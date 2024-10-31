@@ -40,6 +40,19 @@
 
 `#define 是预处理命令 使用 define 定义常量实际是进行符号替换 #define 符号名 替换列表 #define XI "XIAO YU" 所有的 XI 都会被替换为 XIAO YU`
 
+```c
+#include <stdio.h>
+ 
+#define TRUE  1
+#define FALSE 0
+ 
+int main(){
+    printf("TRUE: %d\n", TRUE);
+    printf("FALSE: %d\n", FALSE);
+    return 0;
+}
+```
+
 `! #define 与 const 区别`
 
 `#define 与 const 这两种方式都可以用来定义常量 选择哪种方式取决于具体的需求和编程习惯 通常情况下 建议使用 const 关键字来定义常量 因为它具有类型检查和作用域的优势 而 #define 仅进行简单的文本替换 可能会导致一些意外的问题` 
