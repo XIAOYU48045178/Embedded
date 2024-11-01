@@ -376,6 +376,8 @@ void mstrcpy(char *dst, char *src){
     for(int i = 0; *(src+i); i++){
         *(dst+i) = *(src+i);
     }
+
+    //while(*dst++=*src++);
 }
 
 int main(){
@@ -384,6 +386,105 @@ int main(){
     mstrcpy(b, a);
     puts(b);
     return 0;
+}
+```
+
+```c
+#include<stdio.h>
+
+int swap(int *n1, int *n2){
+    *n1 = *n1 ^ *n2;
+    *n2 = *n1 ^ *n2;
+    *n1 = *n1 ^ *n2;
+    return 1;
+}
+
+int main(){
+    int n1 = 5, n2 = 10;
+    swap(&n1, &n2);
+    printf("%d %d", n1, n2);
+}
+```
+
+```c
+#include<stdio.h>
+void swap(int*a,int*b){
+    int* t=a;
+    a=b;
+    b=t;
+}//形参
+
+int main(){
+    int x=3,y=5;
+    swap(&x,&y);//实参
+    printf("x is %d,y is %d\n",x,y);
+    return 0;
+}
+```
+
+```c
+#include<stdio.h>
+
+int m[2] = {}; --maxmin 函数结束栈销毁
+
+int* maxmin(int *p, int size){
+    int max = p[0], min = p[0];
+
+    
+    for(int i = 1; i < size; i++){
+        max = max > p[i] ? max : p[i];
+        min = min < p[i] ? min : p[i];
+    }
+    m[0] = max; m[1] = min;
+    return m;
+}
+int main(){
+    int arr[5] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int *m = maxmin(arr,size);
+    printf("%d %d", m[0], m[1]);
+}
+```
+
+```c
+#include<stdio.h>
+
+int maxmin(int *p, int *m, int size){
+    int max = p[0], min = p[0];
+
+    for(int i = 1; i < size; i++){
+        max = max > p[i] ? max : p[i];
+        min = min < p[i] ? min : p[i];
+    }
+    m[0] = max; m[1] = min;
+    return 1;
+}
+int main(){
+    int arr[5] = {1, 2, 3, 4, 5};
+    int m[2] = {};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int isSuccess = maxmin(arr, m, size);
+    printf("%d %d", m[0], m[1]);
+}
+```
+
+```c
+#include<stdio.h>
+void my_strcat(char * dst,char *src){
+    int i = 0;
+    for(i = 0; dst[i]; i++);
+    int j = 0;
+    for(j = 0; src[j]; j++){
+        dst[i+j] = src[j];
+    }
+    dst[i + j] = 0;
+}
+
+int main(){
+    char a[20] = "hello";
+    char b[] = "world";
+    my_strcat(a,b);
+    puts(a);
 }
 ```
 
