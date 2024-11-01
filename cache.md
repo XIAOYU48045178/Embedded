@@ -342,3 +342,43 @@ void func() {
     // 使用数组a...  
 }
 但是，请注意，变长数组的使用有一些限制和潜在的陷阱，特别是在嵌套函数或大型数组的情况下，因为它们可能导致栈溢出。因此，在使用变长数组时要特别小心。
+
+```c
+#include<stdio.h>
+float mavg(float *p, int size){
+    float sum = 0;
+    float avg = 0;
+
+    for(int i = 0; i < size; i++){
+        sum += *(p+i);
+    }
+
+    return avg = sum * 1.0 / size;
+}
+
+int main(){
+    float arr[5] = {60, 70, 80, 90, 100};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    float avg = mavg(arr,size);
+    printf("%f\n", avg);
+}
+```
+
+输出的时候一定看好数据类型 否则可能为错误的数据
+
+```c
+#include<stdio.h>
+
+int mstrlen(char *p){
+    int i = 0;
+    for(i = 0; *p != 0; i++){
+        p++;
+    }
+    return i;
+}
+
+int main(){
+    char arr[100] = "";
+    gets(arr);
+    printf("%d\n",mstrlen(arr));
+}
